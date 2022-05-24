@@ -1,0 +1,51 @@
+.victories {
+    height: 760rem;
+    background-image: url('../public/bg/bg-victories.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &_container {
+      width: 100%;
+    }
+
+    &_button {
+      width: 278rem;
+      height: 56rem;
+      background: linear-gradient(165.7deg, #F5A429 31.88%, #F24F46 118.94%);
+      border-radius: 8rem;
+      font-family: 'Inter';
+      font-weight: bold;
+      font-size: 22rem;
+      line-height: 140%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 75rem 0 0 0;
+      color: #FFF;
+
+      &:hover{
+        cursor: pointer;
+        background: #fff;
+        color: #071737;
+        transition: 0.2s linear;
+      }
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .victories {
+    height: 960rem;
+    background-image: url('../public/bg/bg-victories-mobile.png');
+
+    &_button {
+      width: 416rem;
+      height: 80rem;
+      border-radius: 10rem;
+      margin: 60rem 0 0 0;
+    }
+  }
+}

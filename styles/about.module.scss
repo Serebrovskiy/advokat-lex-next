@@ -1,0 +1,234 @@
+.about {
+    height: 786rem;
+    background-image: url('../public/bg/bg-about.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    // align-items: center;
+
+    &_container {
+      margin: 194rem 0 0 200rem;
+    }
+
+    &_chapter {
+      color: #fff;
+      font-family: 'Inter';
+      font-weight: 300;
+      font-size: 20rem;
+      line-height: 140%;
+
+      &_line {
+        width: 52rem;
+        border-bottom: 1px solid #fff;
+        display: flex;
+        transform: translate(-70rem, 14rem);
+      }
+    }
+
+    &_title {
+      font-family: 'Inter';
+      font-weight: 700;
+      font-size: 42rem;
+      line-height: 130%;
+      color: #fff;
+      margin: 30rem 0 0;
+    }
+
+    &_description {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 22rem;
+      line-height: 140%;
+      color: #fff;
+      width: 853rem;
+      margin: 35rem 0 30rem;
+    }
+
+    &_next {
+      font-family: 'Inter';
+      font-weight: 300;
+      font-size: 18rem;
+      line-height: 140%;
+      color: #fff;
+      opacity: .9;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+
+    &_femida {
+      position: absolute;
+      right: 133rem;
+      bottom: -100rem;
+      width: 382rem;
+      z-index: 1;
+      animation: femida 4s ease infinite;
+      // height: 685rem;
+
+      &_shadow {
+        position: absolute;
+        right: 245rem;
+        bottom: -120rem;
+        max-width: 201rem;
+        z-index: 0;
+        opacity: 0.7;
+        animation: femida-shadow 4s ease 0s infinite;
+      }
+    }
+
+    &_vector_container {
+      width: 650rem;
+      min-height: 270rem;
+      position: relative;
+      /* border: 1px solid green; */
+      align-self: flex-end;
+      overflow: hidden;
+      transform: translateY(-67rem);
+    }
+
+    &_vector_circle {
+      max-width: 649rem; 
+      max-height: 595rem;
+      position: absolute;
+      bottom: -300rem;
+      right: 40rem;
+      opacity: .7;
+      animation: vector-circle 60s linear infinite;
+      // transform-origin: 42% 45%; смещение оси
+    }
+  }
+
+@media screen and (max-width: 768px) {
+  .about {
+    height: 1760rem;
+    background-image: url('../public/bg/bg-about-mobile.png');
+    justify-content: end;
+    &_container {
+      margin: 194rem auto 220rem;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+    }
+    &_chapter {
+      display: none;
+    }
+    &_title {
+      font-weight: 600;
+      font-size: 45rem;
+      margin: 0;
+      width: 600rem;
+      // text-align: center;
+      letter-spacing: 0.03em;
+      &_large {
+        font-weight: 700;
+        font-size: 71rem;
+        line-height: 135%;
+      }
+    }
+    &_description {
+      font-size: 28rem;
+      width: 592rem;
+      margin: 54rem 0 54rem;
+      color: #C6D5EA;
+    }
+    &_next {
+      font-size: 30rem;
+    }
+    &_femida {
+      right: 185rem;
+      top: -100rem;
+      width: 382rem;
+      animation: femida-mobile 4s ease infinite;
+    }
+    &_vector_container {
+      width: 565rem;
+      min-height: 550rem;
+      position: absolute;
+      overflow: visible;
+      transform: translateY(0rem);
+      top: 205rem;
+      right: 90rem;
+    }
+
+    &_vector_circle {
+      max-width: 585rem;
+      max-height: 608rem;
+      bottom: 0rem;
+      right: 0rem;
+      opacity: .9;
+    }
+  }
+}
+
+@keyframes femida {   
+    0% {     
+      bottom: -100rem;  
+    }   
+    50% {     
+      bottom: -80rem; 
+    } 
+    100% {
+      bottom: -100rem; 
+     }
+  }
+
+@keyframes femida-shadow {   
+    0% {    
+      max-width: 201rem;    
+      opacity: 0.7;
+      right: 245rem;
+      bottom: -120rem;
+    }  
+    // 10% { 
+    //   max-width: 201rem;    
+    //   opacity: 0.8;
+    //   right: 245rem;
+    //   bottom: -120rem;
+    // }  
+    50% { 
+      max-width: 170rem; 
+      opacity: 0.4;
+      right: 260rem;
+      bottom: -110rem;
+    } 
+    // 55% { 
+    //   max-width: 150rem; 
+    //   opacity: 0.4;
+    //   right: 260rem;
+    //   bottom: -110rem;
+    // } 
+    100% {
+      max-width: 201rem;    
+      opacity: 0.7;
+      right: 245rem;
+      bottom: -120rem;
+     }
+  }
+
+  @keyframes femida-mobile {   
+    0% {     
+      top: -100rem;  
+    }   
+    50% {     
+      top: -80rem; 
+    } 
+    100% {
+      top: -100rem; 
+     }
+  }
+  
+  @keyframes vector-circle {   
+    0% {     
+      transform: rotate(0)  
+    }   
+    50% {     
+      transform: rotate(180deg) 
+    } 
+    100% {
+      transform: rotate(360deg) 
+     }
+  }

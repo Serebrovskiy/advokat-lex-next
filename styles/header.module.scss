@@ -1,0 +1,114 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 36.5rem 200rem 0;
+    opacity: 0.9;
+
+    &_logo {
+      width: 250rem;
+      height: 67rem;
+      margin: 5rem 0 0;
+    }
+
+    &_container {
+      width: 580rem;
+    }
+
+    &_contacts {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 0 16rem 14rem;
+    }
+
+    &_call {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 15rem;
+      line-height: 140%;
+      color: #FFF;
+      opacity: 0.8;
+      margin: 0 33rem 0 0;
+      border-bottom: 1px dashed #FFF;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+      }
+    }
+
+    &_phone {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 28rem;
+      line-height: 140%;
+      letter-spacing: 0.03em;
+      margin: 0 33rem 0 0;
+      color: #F5A429;
+    }
+
+    &_profile{
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 14rem;
+      line-height: 140%;
+      color: #F5A429;
+      border-bottom: 1px dashed #F5A429;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_mobile {
+      display: none;
+    }
+  }
+
+@media screen and (max-width: 768px) {
+  .header {
+      padding: 10rem 24rem 12rem;
+      background: #000;
+
+     &_logo {
+       width: 154rem;
+       height: 42rem;
+       margin: 5rem 0 0;
+     }
+
+     &_container {
+       // width: 100%;
+       display: none;
+     }
+
+     &_mobile {
+       display: flex;
+       justify-content: space-between;
+       align-items: flex-end;
+       width: 90rem;
+       // border: 1px solid green;
+
+       &_profile {
+         width: 35rem;
+         height: 35rem;
+
+         &:hover {
+           cursor: pointer;
+         }
+       }
+
+       &_menu {
+         width: 35rem;
+         height: 35rem;
+         padding: 0;
+         background-color: transparent;
+         border: none;
+
+         &:hover {
+           cursor: pointer;
+         }
+       }
+     }
+   }
+}

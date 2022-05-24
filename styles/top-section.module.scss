@@ -1,0 +1,12 @@
+.top_section{
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .top_section {
+    background-color: #071737;
+    background-image: url('../public/bg/bg-header-mobile.png');
+    background-size: cover;
+  }
+}

@@ -1,0 +1,166 @@
+.footer {
+    min-height: 200rem;
+    background-color: #010101;
+    background: linear-gradient(180deg, #010101 0%, #1B2B4B 100%);
+  
+    &__container {
+      display: grid;
+      grid-template-rows: repeat(1, 210rem);
+      grid-template-columns: 250rem 250rem 430rem 300rem;
+      margin: 74rem 160rem 0 250rem;
+  
+      &_nav {
+        list-style: none;
+  
+        &_item {
+          margin: 9rem 0 0 ;
+          color: #859AB5;
+          font-family: 'Inter';
+          font-weight: 500;
+          font-size: 18rem;
+          line-height: 140%;
+        }
+  
+        &_bottom_21{
+          margin-bottom: 21rem;
+        }
+  
+        &_link {
+          color: #fff;
+        }
+      }
+  
+      &_contacts {
+        height: 290rem;
+  
+        &_email {
+          color: #fff;
+          font-family: 'Inter';
+          font-weight: 600;
+          font-size: 25rem;
+          line-height: 45rem;
+          margin: 0;
+  
+        }
+        &_tel {
+          color: #fff;
+          font-family: 'Inter';
+          font-weight: 600;
+          font-size: 37rem;
+          line-height: 52rem;
+          margin: 5rem 0 0;
+        }
+      }
+    }
+  
+    &__container_bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 80rem 0 0 200rem;
+      padding-bottom: 46rem;
+      max-width: 1200rem;
+      position: relative;
+  
+      &_copyright {
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 15rem;
+        line-height: 140%;
+        color: #C6D5EA;
+      }
+  
+      &_social {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        position: absolute;
+        right: -105rem;
+        top: -74rem;
+  
+        &_item {
+          margin: 0 40rem 0 0;
+  
+          &:hover {
+            opacity: .8;
+          }
+    
+        }
+  
+        &_link {
+          display: block;
+          width: 38rem;
+  
+          &_52 {
+            width: 52rem;
+          }
+          &_32 {
+            width: 32rem;
+          }
+        }
+  
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .footer { 
+  
+      &__container {
+        display: grid;
+        grid-template-rows: 320rem 250rem;
+        grid-template-columns: 350rem 300rem;
+        margin: 100rem 0 0 70rem;
+  
+        &_nav {
+          padding: 0;
+  
+          &_item {
+            margin: 11rem 0 0 ;
+            font-size: 22rem;
+          }
+        }
+  
+        &_contacts {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          height: 190rem;
+    
+          &_email {
+            font-size: 22rem;
+          }
+          &_tel {
+            font-size: 32rem;
+            line-height: 70rem;
+            margin: 0rem 0 0;
+          }
+        }
+      }
+  
+      &__container_bottom {
+        margin: 0rem 60rem 0 70rem;
+        max-width: 768rem;
+        justify-content: space-between;
+  
+        &_social {
+          position: static;
+  
+          &_item {
+            margin: 0 30rem 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  .text_gradient {
+    background: linear-gradient(137.49deg, #ECD821 2.26%, #FA9703 49.98%, #DA6330 94.81%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+  }
+  .text_white {
+    color: #fff;
+  }

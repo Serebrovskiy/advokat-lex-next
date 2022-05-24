@@ -1,0 +1,258 @@
+.contacts {
+  height: 937rem;
+  background-image: url('../public/bg/bg-contacts.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+
+  &_chapter {
+    color: #fff;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 20rem;
+    line-height: 140%;
+    margin: 76rem 0 0 200rem;
+
+    &_line {
+      width: 52rem;
+      border-bottom: 1px solid #fff;
+      display: flex;
+      transform: translate(-70rem, 14rem);
+    }
+  }
+
+  &_title {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 42rem;
+    line-height: 130%;
+    color: #FFF;
+    margin: 30rem auto 0;
+  }
+
+  &_container {
+    display: flex;
+    margin: 58rem 0 0 200rem;
+
+    &_data {
+      display: flex;
+      flex-direction: column;
+
+      &_subtitle {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 22rem;
+        line-height: 34rem;
+        text-transform: uppercase;
+        color: #FFF;
+        margin: 0 0 0rem 47rem;
+        
+        &_30 {
+          margin: 30rem 0 0rem 47rem;
+        }
+
+        &_contact {
+          font-family: 'Inter';
+          font-weight: 700;
+          font-size: 22rem;
+          line-height: 34rem;
+          text-transform: uppercase;
+          color: #FFF;
+          margin: 0 0 0 19rem;
+        }
+      }
+
+      &_item {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0 0;
+      }
+
+      &_icon {
+        width: 24rem;
+
+        &_30 {
+          width: 30rem;
+        }
+      }
+
+      &_text {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 18rem;
+        line-height: 34rem;
+        color: #FFF;
+        margin: 0 0 0 20rem;
+
+        &_contact { 
+          font-family: 'Inter';
+          font-weight: 400;
+          font-size: 18rem;
+          line-height: 34rem;
+          color: #FFF;
+          margin: 0 0 0 47rem;
+        }
+      }
+
+      &_box {
+        display: flex;
+        align-items: center;
+        margin: 30rem 0 0;
+      }
+    }
+  }
+
+  &_button {
+    width: 271rem;
+    height: 64rem;
+    background: linear-gradient(128.7deg, #F5A429 5.88%, #F24F46 93.94%);
+    border-radius: 8rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 22rem;
+    line-height: 140%;
+    color: #FFF;
+    margin: 42rem 0 0 47rem;
+    z-index: 1;
+
+
+    &:hover {
+      cursor: pointer;
+      background: #fff;
+      color: #071737;
+      transition: 0.2s linear;
+    }
+  }
+
+  &_map {
+    width: 712rem;
+    height: 580rem;
+    background-color: #fff;
+    border-radius: 22rem;
+    margin: 0 0 0 100rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &_mobile_map {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+.contacts { 
+    height: 3000rem;
+    background-image: url('../public/bg/bg-contacts-mobile.png');
+    position: relative;
+
+    &_chapter {
+      display: none;
+    }
+
+    &_title {
+      font-size: 54rem;
+      margin: 177rem 0 0 80rem;
+      width: 592rem;
+      letter-spacing: 2rem;
+
+      &_br {
+        display: inline;
+      }
+    }
+
+    &_container {
+      flex-direction: column;
+      margin: 76rem 0 0 80rem;
+
+      &_data {
+        display: flex;
+        flex-direction: column;
+
+        &_subtitle {
+
+          font-size: 37rem;
+          line-height: 57rem;
+
+          color: #FFF;
+          margin: 0 0 0 0;
+          
+          &_30 {
+            margin: 76rem 0 0 0;
+          }
+
+          &_contact {
+            font-weight: 700;
+            font-size: 37rem;
+            line-height: 76rem;
+            margin: 0 0 0 19rem;
+          }
+        }
+
+        &_item {
+          margin: 28rem 0 0;
+          width: 520rem;
+          align-items: flex-start;
+        }
+
+        &_icon {
+          width: 40.5rem;
+          margin: 4rem 0 0 0;
+
+          &_30 {
+            width: 42.5rem;
+          }
+        }
+
+        &_text {
+          font-size: 30rem;
+          line-height: 140%;
+          margin: 0 0 0 22rem;
+
+          &_contact { 
+            font-size: 40rem;
+            line-height: 76rem;
+            margin: 0 0 0 61rem;
+          }
+        }
+
+        &_box {
+          display: flex;
+          align-items: center;
+          margin: 70rem 0 0;
+        }
+      }  
+    }
+
+    &_button {
+      width: 605rem;
+      height: 100rem;
+      background: linear-gradient(137.49deg, #ECD821 2.26%, #FA9703 49.98%, #DA6330 94.81%);
+      border-radius: 10rem;
+      font-size: 30rem;
+      margin: 91rem 0 0 0rem;
+      z-index: 1;
+
+      &:hover {
+        cursor: pointer;
+        background: #fff;
+        color: #071737;
+        transition: 0.2s linear;
+      }
+    }
+
+    &_map {
+      display: none;
+    }
+
+    &_mobile_map {
+      display: block;
+     
+    }
+
+  }
+}

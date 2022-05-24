@@ -1,0 +1,224 @@
+.command {
+    height: 1230rem;
+    background-image: url('../public/bg/bg-command.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &_chapter {
+      color: #071737;
+      font-family: 'Inter';
+      font-weight: 300;
+      font-size: 20rem;
+      line-height: 140%;
+      margin: 76rem 0 0 200rem;
+
+      &_line {
+        width: 52rem;
+        border-bottom: 1px solid #071737;
+        display: flex;
+        transform: translate(-70rem, 14rem);
+      }
+    }
+
+    &_title {
+      font-family: 'Inter';
+      font-weight: 700;
+      font-size: 42rem;
+      line-height: 130%;
+      color: #071737;
+      margin: 30rem 0 0 0;
+      text-align: center;
+    }
+
+    &_description {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 18rem;
+      line-height: 140%;
+      color: #071737;
+      width: 978rem;
+      margin: 22rem auto 0;
+      text-align: center;
+    }
+
+    &_list {
+      margin: 44rem auto 0;
+      display: flex;
+      list-style: none;
+      padding: 0;
+    }
+
+    &_card {
+      width: 232rem;
+      height: 375rem;
+      padding: 0 0 10rem;
+      border-radius: 22rem;
+      background: linear-gradient(180deg, #FFFFFF 65.49%, rgba(255, 255, 255, 0) 100%);
+      margin: 0 57rem 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      //transition: 0.2s linear;
+      color: #1B2B4B;
+
+      &:hover {
+        cursor: pointer;
+        background: linear-gradient(137.49deg, #ECD821 2.26%, #FA9703 49.98%, #DA6330 94.81%);
+        // width: 100%;
+        height: 100%;
+        border-radius: 22rem;
+        color: #fff;
+        //transition: 0.2s linear;
+      }
+
+      &_person {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        width: 175rem;
+        
+        &_4 {
+          width: 155rem;
+        }
+
+        // &:hover {
+        //   cursor: pointer;
+        //   background: linear-gradient(137.49deg, #ECD821 2.26%, #FA9703 49.98%, #DA6330 94.81%);
+        //   width: 100%;
+        //   height: 100%;
+        //   border-radius: 22rem;
+        // }
+      }
+
+      &_name {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 18rem;
+        line-height: 21rem;
+        text-align: center;
+        // color: #1B2B4B;
+        margin: 14rem 0 0;
+      }
+
+      &_position {
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 16rem;
+        line-height: 21rem;
+        text-align: center;
+        // color: #1B2B4B;
+        margin: 5rem 0 0;
+      }
+    }
+
+    &_button {
+      width: 325rem;
+      height: 54rem;
+      background: linear-gradient(137.49deg, #ECD821 2.26%, #FA9703 49.98%, #DA6330 94.81%);
+      border-radius: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter';
+      font-weight: 700;
+      font-size: 22rem;
+      line-height: 140%;
+      color: #FFF;
+      margin: 62rem auto 0;
+      z-index: 1;
+
+      &:hover {
+        cursor: pointer;
+        background: linear-gradient(137.49deg, #FE9800 2.26%, #E85212 94.81%);
+        transition: 0.2s linear;
+      }
+    }
+
+    &_img {
+      position: absolute;
+      left: 20%;
+      bottom: -4rem;
+      width: 995rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .command {
+      height: 2000rem;
+      background-image: url('../public/bg/bg-command-mobile.png');
+
+      &_chapter {
+        display: none;
+      }
+
+      &_title {
+        font-size: 54rem;
+        margin: 177rem 0 0 61rem;
+        text-align: start;
+        width: 595rem;
+      }
+  
+      &_description {
+        font-size: 28rem;
+        line-height: 140%;
+        width: 592rem;
+        margin: 68rem 0 0 61rem;
+        text-align: start;
+      }
+
+      &_list {
+        margin: 70rem 0 0 61rem;
+        padding: 0 0 14rem 0;
+        overflow: auto;
+      }
+
+      &_card {
+        min-width: 290rem;
+        // height: 381rem;
+        height: 100%;
+        margin: 0 30rem 0 0;
+  
+        &_person {
+          width: 241rem;
+          
+          &_4 {
+            width: 230rem;
+          }
+        }
+  
+        &_name {
+        }
+  
+        &_position {
+        }
+      }
+
+      &_button {
+        width: 592rem;
+        height: 100rem;
+        background: linear-gradient(137.49deg, #ECD821 2.26%, #FA9703 49.98%, #DA6330 94.81%);
+        border-radius: 10rem;
+        font-size: 30rem;
+        margin: 160rem auto 0;
+        z-index: 1;
+  
+        &:hover {
+          cursor: pointer;
+          background: linear-gradient(137.49deg, #FE9800 2.26%, #E85212 94.81%);
+          transition: 0.2s linear;
+        }
+      }
+
+      &_img {
+        left: 0%;
+        bottom: -1rem;
+        width: 100%;
+      }
+    }
+  }

@@ -1,0 +1,15 @@
+.video {
+    top: 50%;
+    width: 1938rem;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    left: 50%;
+    z-index: 0;
+    position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+    .video {
+      display: none;
+    }
+}
