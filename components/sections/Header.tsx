@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Navigation } from '../Navigation'
 import styles from '../../styles/header.module.scss';
 
-export default function Header({ onOpenPopup, onClose, toggleMobileMenu }){
+export default function Header({ onOpenPopup, onClose, toggleMobileMenu, activePage }){
     return (
       <header className={styles.header} data-aos="zoom-in"> 
         <div className={styles.header_logo} >
@@ -14,7 +14,7 @@ export default function Header({ onOpenPopup, onClose, toggleMobileMenu }){
            <span className={styles.header_phone}>8(800)3016650</span>
            <span className={styles.header_profile}  onClick={() => onOpenPopup('profile')}>Личный кабинет</span>
          </div>
-         <Navigation active='main' onClose={onClose} />
+         <Navigation active={activePage} onClose={onClose} />
         </div>
         <div className={styles.header_mobile}>
           <div className={styles.header_mobile_profile} onClick={() => onOpenPopup('profile')}>

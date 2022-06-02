@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/container-with-tabs.module.scss'
+import Link from 'next/link';
 //import styles from '../styles/Home.module.scss'
 
 export function ContainerWithTabsServicesMobile({ }){
@@ -34,7 +35,9 @@ export function ContainerWithTabsServicesMobile({ }){
                 <li className={styles.services_mobile__content_item}>Семейные споры</li>
                 <li className={styles.services_mobile__content_item}>Наследственные споры</li>
               </ul>
-              <button className={`${styles.services_mobile__content_button} ${isOpenTabPhysical && styles.services_mobile__content_button_opened}`}>Перейти в раздел</button>
+              <Link href={'/services/physical'} passHref>
+                <a className={`${styles.services_mobile__content_button} ${isOpenTabPhysical && styles.services_mobile__content_button_opened}`}>Перейти в раздел</a>
+              </Link>
             </div>
             <div className={`${styles.services_mobile__item} ${isOpenTabLegal && styles.services_mobile__item_opened}`} onClick={onToggleTabLegal} >
               Для юридических лиц
@@ -51,7 +54,9 @@ export function ContainerWithTabsServicesMobile({ }){
                 <li className={styles.services_mobile__content_item}>Представительство в Арбитражном суде</li>
                 <li className={styles.services_mobile__content_item}>Налоговые споры</li>
               </ul>
-              <button className={`${styles.services_mobile__content_button} ${isOpenTabLegal && styles.services_mobile__content_button_opened}`}>Перейти в раздел</button>
+              <Link href={'/services/legal'} passHref>
+                <a className={`${styles.services_mobile__content_button} ${isOpenTabLegal && styles.services_mobile__content_button_opened}`}>Перейти в раздел</a>
+              </Link>
             </div>
           </>
   )

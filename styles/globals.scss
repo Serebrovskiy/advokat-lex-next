@@ -151,3 +151,16 @@ h1 {
     display: inline;
   }
 }
+
+
+body::-webkit-scrollbar {
+  width: 9rem;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: #989898;        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #081A2F;    /* цвет плашки */
+  border-radius: 0rem;       /* закругления плашки */
+  border: 1rem solid #081A2F;  /* padding вокруг плашки */
+}

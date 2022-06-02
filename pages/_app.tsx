@@ -5,6 +5,7 @@ import AOS from "aos";
 
 import "aos/dist/aos.css";
 import '../styles/globals.scss'
+import { PopupContext } from '../popupsContext';
 
 function MyApp({ Component, pageProps }) {
 
@@ -20,16 +21,19 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
-    <NextNprogress
-      color="#ccc"
-      startPosition={0.6}
-      stopDelayMs={300}
-      height={3}
-      showOnShallow={true}
-    />
-      <Component {...pageProps} />
+    <>  
+      <NextNprogress
+        color="#ccc"
+        startPosition={0.6}
+        stopDelayMs={300}
+        height={3}
+        showOnShallow={true}
+      />
+      <PopupContext>
+        <Component {...pageProps} />
+      </PopupContext>
     </>
+    
   )
 }
 

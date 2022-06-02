@@ -7,7 +7,7 @@ export default function TopSection({onOpenPopup, onClose, toggleMobileMenu}){
     return (
       <section className={styles.top_section}>
         <VideoBackground />
-        <Header onOpenPopup={onOpenPopup} onClose={onClose} toggleMobileMenu={toggleMobileMenu} />
+        <Header onOpenPopup={onOpenPopup} onClose={onClose} toggleMobileMenu={toggleMobileMenu} activePage="main" />
         <Greeting />
       </section>
     )

@@ -17,18 +17,19 @@ export function FormImage({ caseData }){
   return (
     <>
       <p className={styles.form__image_container_text}>{title}</p>
-      {imagesData.map(item => (
-       <div className={styles.form__image_container} key={item.id}> 
-         <Image loader={() => `${src + item.attributes.url}?w=564`} 
-         src={src + item.attributes.url} 
-         width={564} 
-         height={800} 
-        //  sizes="(max-width: 1000px) 400px, 564px"
-         alt=''
-         />
-       </div>
-      ))}
+      <div className={styles.form__image_scroll_container} >
+        {imagesData.map(item => (
+          <div className={styles.form__image_container} key={item.id}> 
+            <Image loader={() => `${src + item.attributes.url}?w=564`} 
+            src={src + item.attributes.url} 
+            width={750} 
+            height={1000} 
+           //  sizes="(max-width: 1000px) 400px, 564px"
+            alt=''
+            />
+          </div>
+        ))}
+      </div>
     </>
-  )
-  
+  )  
 }

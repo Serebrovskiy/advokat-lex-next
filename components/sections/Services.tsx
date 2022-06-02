@@ -19,9 +19,10 @@ export default function Services(){
             <h2 className={styles.services_title} data-aos={"zoom-in"}>Наши основные юридические услуги</h2>        
             <div className={styles.services_container} data-aos={"zoom-in"}>
               <ContainerWithTabsServices firstName="Для физических лиц" secondName="Для юридических лиц" />
-                <Link href={'/#'} passHref>
+                {/* <Link href={'/services/physical'} passHref>
                   <a className={styles.services_container_button}>Перейти в раздел</a>
-                </Link>
+                </Link> */}
+
                 {/* <div className={styles.services_container_icon}>
                   <Image loader={() => "/icons/icon-services.svg?w=196"} src={"/icons/icon-services.svg"} width={196} height={196} alt="иконка" />
                 </div>  */}

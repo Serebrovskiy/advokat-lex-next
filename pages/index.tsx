@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { MainLayout } from '../components/MainLayout'
 import { MobileMenu } from '../components/MobileMenu';
@@ -14,54 +14,61 @@ import Command from '../components/sections/Command'
 import Contacts from '../components/sections/Contacts'
 import Footer from '../components/sections/Footer'
 
+import { Context } from '../popupsContext'
+
 import "aos/dist/aos.css";
 import styles from '../styles/Home.module.scss'
 
 
 export default function Home({ cases }) {
+  const { handleOpenPopup, closeMobileMenu, toggleMobileMenu, isOpenMobileMenu, isOpenPopup, namePopup } = useContext(Context);
 
-  const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
-  const [isOpenPopup, setIsOpenPopup] = useState(false);
-  const [namePopup, setNamePopup] = useState('');
+  // const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
+  // const [isOpenPopup, setIsOpenPopup] = useState(false);
+  // const [namePopup, setNamePopup] = useState('');
 
-  if(!cases){
-    console.error('Missing cases');
-    // return <ErrorPage />
-  }
+  // if(!cases){
+  //   console.error('Missing cases');
+  //   // return <ErrorPage />
+  // }
 
-  const toggleMobileMenu = () => {
-    isOpenMobileMenu ? setIsOpenMobileMenu(false) : setIsOpenMobileMenu(true);
-  }
+  // const toggleMobileMenu = () => {
+  //   isOpenMobileMenu ? setIsOpenMobileMenu(false) : setIsOpenMobileMenu(true);
+  // }
 
-  const handleOpenPopup = (name) => {
-    // console.log('name',name)
-    setIsOpenPopup(true);
-    setNamePopup(name);
-  }
+  // const handleOpenPopup = (name) => {
+  //   // console.log('name',name)
+  //   setIsOpenPopup(true);
+  //   setNamePopup(name);
+  // }
 
-  const closeMobileMenu = () => {
-    setIsOpenMobileMenu(false);
-    setIsOpenPopup(false);
-    setNamePopup('');
-  } 
+  // const closeMobileMenu = () => {
+  //   setIsOpenMobileMenu(false);
+  //   setIsOpenPopup(false);
+  //   setNamePopup('');
+  // } 
 
   return (
     <MainLayout 
       title={'Юридическая компания «Адвокат-LEX» в Санкт-Петербурге'}
       description={'Мы оказываем квалифицированную юридическую помощь по вопросам: семейного, жилищного, уголовного, административного и иного законодательства. Консультация юриста. Услуги юриста. Юридические услуги. Юридическая помощь'}
     >
-      <TopSection onOpenPopup={handleOpenPopup} onClose={closeMobileMenu} toggleMobileMenu={toggleMobileMenu} />
-      <Victories cases={cases} onOpenPopup={handleOpenPopup} />
-      <About />
-      <Consultation /> 
-      <Services /> 
-      <Command />
-      <Contacts onOpenPopup={handleOpenPopup} />
-      <Footer />
-      <Popup isOpenPopup={isOpenPopup} onClose={closeMobileMenu} name={namePopup} />
-      {
-        isOpenMobileMenu && <MobileMenu onClose={closeMobileMenu} />
-      }
+      {/* <Context.Provider value={{
+        handleOpenPopup, closeMobileMenu, toggleMobileMenu
+      }}> */}
+        <TopSection onOpenPopup={handleOpenPopup} onClose={closeMobileMenu} toggleMobileMenu={toggleMobileMenu} />
+        <Victories cases={cases} onOpenPopup={handleOpenPopup} />
+        <About />
+        <Consultation /> 
+        <Services /> 
+        <Command />
+        <Contacts onOpenPopup={handleOpenPopup} />
+        <Footer />
+        <Popup isOpenPopup={isOpenPopup} onClose={closeMobileMenu} name={namePopup} />
+        {
+          isOpenMobileMenu && <MobileMenu onClose={closeMobileMenu} />
+        }
+      {/* </Context.Provider> */}
     </MainLayout>
   )
 }
