@@ -20,43 +20,28 @@ import "aos/dist/aos.css";
 import styles from '../styles/Home.module.scss'
 
 
-export default function Home({ cases }) {
-  const { handleOpenPopup, closeMobileMenu, toggleMobileMenu, isOpenMobileMenu, isOpenPopup, namePopup } = useContext(Context);
+export default function Home({ videoBackground, cases }) {
+  const { 
+    handleOpenPopup, 
+    closeMobileMenu, 
+    toggleMobileMenu, 
+    isOpenMobileMenu, 
+    isOpenPopup, 
+    namePopup 
+  } = useContext(Context);
 
-  // const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
-  // const [isOpenPopup, setIsOpenPopup] = useState(false);
-  // const [namePopup, setNamePopup] = useState('');
-
-  // if(!cases){
-  //   console.error('Missing cases');
-  //   // return <ErrorPage />
-  // }
-
-  // const toggleMobileMenu = () => {
-  //   isOpenMobileMenu ? setIsOpenMobileMenu(false) : setIsOpenMobileMenu(true);
-  // }
-
-  // const handleOpenPopup = (name) => {
-  //   // console.log('name',name)
-  //   setIsOpenPopup(true);
-  //   setNamePopup(name);
-  // }
-
-  // const closeMobileMenu = () => {
-  //   setIsOpenMobileMenu(false);
-  //   setIsOpenPopup(false);
-  //   setNamePopup('');
-  // } 
 
   return (
     <MainLayout 
       title={'Юридическая компания «Адвокат-LEX» в Санкт-Петербурге'}
       description={'Мы оказываем квалифицированную юридическую помощь по вопросам: семейного, жилищного, уголовного, административного и иного законодательства. Консультация юриста. Услуги юриста. Юридические услуги. Юридическая помощь'}
     >
-      {/* <Context.Provider value={{
-        handleOpenPopup, closeMobileMenu, toggleMobileMenu
-      }}> */}
-        <TopSection onOpenPopup={handleOpenPopup} onClose={closeMobileMenu} toggleMobileMenu={toggleMobileMenu} />
+        <TopSection 
+          onOpenPopup={handleOpenPopup} 
+          onClose={closeMobileMenu} 
+          toggleMobileMenu={toggleMobileMenu} 
+          videoBackground={videoBackground} 
+        />
         <Victories cases={cases} onOpenPopup={handleOpenPopup} />
         <About />
         <Consultation /> 
@@ -68,20 +53,19 @@ export default function Home({ cases }) {
         {
           isOpenMobileMenu && <MobileMenu onClose={closeMobileMenu} />
         }
-      {/* </Context.Provider> */}
     </MainLayout>
   )
 }
 
 export const getServerSideProps = async (context: any) => {
   // for example
-  // const mainPage = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/main-page?populate=*`)
-  // .then(res => {
-  //   return res.json();
-  // })
-  // .then(res => {
-  //   return res.data;
-  // })
+  const videoBackground = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/video-background?populate=*`)
+  .then(res => {
+    return res.json();
+  })
+  .then(res => {
+    return res.data;
+  })
 
   const cases = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/won-cases?populate=*`)
   .then(res => {
@@ -96,7 +80,7 @@ export const getServerSideProps = async (context: any) => {
 
   return {
     props: {
-      // logo: mainPage.attributes.logo,
+      videoBackground: videoBackground.attributes.video1.data.attributes.url,
       cases: cases
     }
   }

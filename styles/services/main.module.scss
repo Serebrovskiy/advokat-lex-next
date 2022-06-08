@@ -1,7 +1,132 @@
 .services_main {
-    font-size: 36rem;
-    color: bisque;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 550rem;
+  background-image: url('../../public/bg/bg-services.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+
+  &__path {
+      display: flex;
+      margin: 46rem 0 0 200rem;
+
+      &_text {
+        font-weight: 400;
+        font-size: 18rem;
+        line-height: 140%;
+        opacity: .5;
+        margin: 0;
+
+        &:hover {
+          cursor: pointer;
+          opacity: .8;
+        }
+      }
+  }
+
+  &__title {
+      display: flex;
+      align-items: flex-end;
+      margin: 0rem 0 0 200rem;
+
+      &_text {
+        font-weight: 700;
+        font-size: 42rem;
+        line-height: 130%;
+        margin: 0 27rem 0 0;
+      }
+
+      &_icon {
+        width: 85rem;
+        height: 72rem;
+      }
+  }
+
+  &__container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60rem 0 0 200rem;
+      width: 1300rem;
+      padding: 0;
+
+      &_item {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          width: 194rem;
+          height: 197rem;
+          background: rgba(196, 196, 196, 0.01);
+          box-shadow: 2rem 4rem 8rem rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(20rem);
+          border-radius: 20rem;   
+          margin: 0 21rem 26rem 0;  
+          padding: 18rem 5rem 0;
+          // transition: all 0.2s;
+
+          &:hover {
+              cursor: pointer;
+              background: rgba(196, 196, 196, 0.08);
+              backdrop-filter: blur(12rem);
+              text-shadow: #ccc 1rem 0 10rem;
+          }
+
+          &_img {
+              width: 119rem;
+              height: 107rem;
+              transition: all 0.4s;
+
+              &_mini {
+                width: 95rem;
+                height: 95rem;
+              }
+          }
+
+          &:hover &_img {
+            transform: scale(1.05);
+          }
+
+          &_text {
+            font-weight: 600;
+            font-size: 16rem;
+            line-height: 140%;
+            margin: 12rem 0 0;
+            text-align: center;
+          }
+      }
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .services_main {
+
+    &__path {
+      margin: 60rem 0 0 60rem;
+    }
+
+    &__title {
+      margin: 30rem 0 0 60rem;
+
+      &_text {
+        font-size: 36rem;
+      }
+
+      &_icon {
+        width: 64rem;
+        height: 54rem;
+      }
+    }
+
+    &__container {
+      margin: 70rem 0 30rem 60rem;
+      width: 670rem;
+
+      &_item {  
+        margin: 0 27rem 26rem 0;  
+        padding: 18rem 5rem 0;
+      }
+    }
+  }
 }

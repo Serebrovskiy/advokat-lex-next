@@ -44,12 +44,12 @@ export default function Footer(){
               Услуги
             </li>
             <li className={styles.footer__container_nav_item}>
-              <a href="#about" className={styles.footer__container_nav_link} >
+              <a href="/services/physical" className={styles.footer__container_nav_link} >
                 Для физ лиц
               </a>
             </li>
             <li className={styles.footer__container_nav_item}>
-              <a href="#services" className={styles.footer__container_nav_link} >
+              <a href="/services/legal" className={styles.footer__container_nav_link} >
                 Для юр лиц
               </a>
             </li>
