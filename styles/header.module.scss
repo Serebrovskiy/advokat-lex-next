@@ -112,3 +112,32 @@
      }
    }
 }
+
+@media screen and (max-width: 450px) {
+  .header {
+    align-items: center;
+    padding: 10rem 60rem 12rem;
+
+    &_logo {
+      width: 250rem;
+      height: 75rem;
+      margin: 5rem 0 0;
+    }
+
+    &_mobile {
+      width: 130rem;
+
+      &_profile {
+        width: 50rem;
+        height: 50rem;
+      }
+
+      &_menu {
+        width: 50rem;
+        height: 50rem;
+
+      }
+    }
+
+  }
+}

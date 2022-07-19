@@ -75,6 +75,9 @@
           &_img {
               width: 119rem;
               height: 107rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
               transition: all 0.4s;
 
               &_mini {
@@ -128,5 +131,22 @@
         padding: 18rem 5rem 0;
       }
     }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .services_main {
+
+    &__path {
+      flex-wrap: wrap;
+      margin: 60rem 20rem 0 60rem;
+
+      &_text {
+        font-size: 24rem;
+        line-height: 220%;
+        margin: 0;
+      }
+  }
+
   }
 }

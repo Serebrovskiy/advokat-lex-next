@@ -31,12 +31,12 @@ export function Navigation({ active, onClose }){
             </a>
           {/* </Link> */}
         </li>
-        <li className={stylesMobile.mobile_menu__item}>
-          {/* <Link href={'/articles'}> */}
-            <a href="#about" className={styles.nav__link}>
+        <li className={`${active == 'victories' ? styles.nav__link_active : ''} ${stylesMobile.mobile_menu__item}`}>
+          <Link href={'/victories'}>
+            <a className={styles.nav__link}>
               Выигранные дела
             </a>
-          {/* </Link> */}
+          </Link>
         </li>
         <li className={stylesMobile.mobile_menu__item}>
           {/* <Link href={'/contact'}> */}

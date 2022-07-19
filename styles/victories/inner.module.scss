@@ -1,0 +1,32 @@
+.victories_inner {
+
+    &__container {
+        max-width: 1000rem;
+
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 42rem;
+        line-height: 130%;
+        color: #FFFFFF;
+        margin: 0;
+    }
+    &__text {
+        font-weight: 500;
+        font-size: 18rem;
+        line-height: 140%;
+        margin: 30rem 0 0;
+    }
+    &__images {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        &__item {
+          width: 173rem;
+          height: 277rem;
+          margin: 0 38rem 0 0;
+        }
+    }
+
+}

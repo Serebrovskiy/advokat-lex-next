@@ -10,7 +10,6 @@
   &__container {
     display: flex;
     margin: 40rem 0 0 200rem;
-
   }
 
   &__nav {
@@ -197,6 +196,8 @@
 @media screen and (max-width: 768px) {
   .services_main_inner {
     overflow: hidden;
+    background-image: url('../../public/bg/bg-services-inner-mobile.png');
+    background-size: contain;
 
     &__container {
       margin: 60rem 0 0 60rem;
@@ -259,6 +260,61 @@
       &:hover {
         width: 100vw;
       }
+    }
+
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .services_main_inner {
+
+    &__title_container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 120rem;
+      margin: 0rem 0 0;
+    }
+  
+    &__title {
+      font-size: 52rem;
+      margin: 0 0rem 0 0;
+      width: 500rem;
+    }
+    &__title_img {
+      width: 120rem;
+      height: 100rem;
+    }
+    &__text_container {
+      height: 800rem;  
+      margin: 50rem 0 0;
+      font-size: 28rem;
+    }
+    &__subtitle {
+      font-size: 36rem;
+      margin: 52rem 0 0;
+      text-align: left;
+    }
+    &__price_container {
+      margin: 70rem 0 30rem;
+    }
+    &__btn_price {
+      width: 500rem;
+      height: 100rem;
+      border-radius: 16rem;
+      margin: 0 52rem 0;
+      font-size: 36rem;
+    }
+    &__text {
+      font-size: 36rem;
+      margin: 45rem 0 0;
+      text-align: left;
+    }
+    &__btn_contacts {
+      width: 600rem;
+      height: 100rem;
+      margin: 80rem 0 110rem;
+
     }
 
   }
