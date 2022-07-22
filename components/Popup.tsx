@@ -2,6 +2,7 @@ import {RemoveScroll} from 'react-remove-scroll';
 import Image from 'next/image';
 import { FormCall } from './FormCall';
 import { FormProfile } from './FormProfile';
+import { FormImageList } from './FormImageList';
 import { FormImage } from './FormImage';
 import styles from '../styles/popup.module.scss'
 
@@ -22,7 +23,14 @@ export function Popup({ isOpenPopup, onClose, name }){
             name == 'profile' && <FormProfile /> 
           } 
           {
-            name.includes('image') && (
+            name.includes('imageList') && (
+              // <div className={`${name.includes('image') && styles.popup__container_img}`} >
+                <FormImageList caseData={name} />
+              // </div>
+            )      
+          }
+                    {
+            name.includes('oneImage') && (
               // <div className={`${name.includes('image') && styles.popup__container_img}`} >
                 <FormImage caseData={name} />
               // </div>

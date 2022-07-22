@@ -2,11 +2,10 @@
 
     &__container {
         max-width: 1000rem;
-
     }
     &__title {
         font-weight: 700;
-        font-size: 42rem;
+        font-size: 40rem;
         line-height: 130%;
         color: #FFFFFF;
         margin: 0;
@@ -21,12 +20,59 @@
         padding: 0;
         display: flex;
         flex-wrap: wrap;
+        margin: 20rem 0 80rem;
 
         &__item {
-          width: 173rem;
-          height: 277rem;
-          margin: 0 38rem 0 0;
+          width: 151rem;
+          height: 243rem;
+          margin: 30rem 48rem 0 0;     
+          border-radius: 8rem;
+          overflow: hidden;
+          transition: transform 0.5s;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+          }
         }
     }
 
+    &__subtitle {
+        font-weight: 700;
+        font-size: 33rem;
+        line-height: 130%;
+        margin: 0 22rem 0 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .victories_inner {
+        &__container {
+            max-width: 640rem;
+        }    
+        &__title {
+            font-size: 33rem;
+        }
+        &__text {
+            font-size: 20rem;
+        }
+        &__images {
+            flex-wrap: nowrap;
+            margin: 50rem 0 80rem;
+            overflow-x: auto;
+    
+            &__item {
+              min-width: 169rem;
+              height: 243rem;
+              margin: 0rem 20rem 0 0;        
+
+              &:hover {
+                transform: none;
+              }
+            }
+        }
+        &__subtitle {
+          font-size: 28rem;
+        }
+    }
 }

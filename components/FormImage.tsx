@@ -3,33 +3,24 @@ import styles from '../styles/form.module.scss'
 
 export function FormImage({ caseData }){
 
-  let data = caseData.slice(5);
+  let data = caseData.slice(8);
   data = JSON.parse(data)
-  //console.log('data', data)
+ // console.log('data', data)
 
   //let src = process.env.API_URL_LOCAL || 'http://localhost:1337';
   let src = process.env.API_URL_LOCAL || 'http://194.67.92.119:1337';
-  const imagesData = data.attributes.img.data;
-  const title = data.attributes.title;
+  const imageUrl = data.attributes.url;
 
-  console.log('imagesData', imagesData)
+  //console.log('imageUrl', imageUrl)
 
   return (
-    <>
-      <p className={styles.form__image_container_text}>{title}</p>
-      <div className={styles.form__image_scroll_container} >
-        {imagesData.map(item => (
-          <div className={styles.form__image_container} key={item.id}> 
-            <Image loader={() => `${src + item.attributes.url}?w=564`} 
-            src={src + item.attributes.url} 
-            width={750} 
-            height={1000} 
-           //  sizes="(max-width: 1000px) 400px, 564px"
-            alt=''
-            />
-          </div>
-        ))}
+      <div className={`${styles.form__image_container} ${styles.form__image_container_one}`}> 
+        <Image loader={() => `${src + imageUrl}?w=564`} 
+        src={src + imageUrl} 
+        width={750} 
+        height={1000} 
+        alt=''
+        />
       </div>
-    </>
   )  
 }

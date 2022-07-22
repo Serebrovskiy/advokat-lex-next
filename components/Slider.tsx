@@ -52,7 +52,7 @@ export function Slider({ cases: wonCases, onOpenPopup }) {
             if(item.attributes.slider){
             return (  
               <SwiperSlide className={styles.slide} key={item.id}>
-                <div className={styles.slide_container} onClick={() => onOpenPopup(`image${JSON.stringify(item)}`)}> 
+                <div className={styles.slide_container} onClick={() => onOpenPopup(`imageList${JSON.stringify(item)}`)}> 
                   <Image loader={() => `${src+item.attributes.img.data[0].attributes.url}?w=192`} src={src+item.attributes.img.data[0].attributes.url} width={192} height={252} alt='' />
                 </div>
               </SwiperSlide>

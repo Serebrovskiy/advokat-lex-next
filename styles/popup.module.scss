@@ -63,17 +63,29 @@
 
 @media screen and (max-width: 768px) {
   .popup {
-    align-items: flex-start;
+    // align-items: flex-start;
+    align-items: center;
 
     &__container {
-      margin: 300rem 60rem 0;
+      // margin: 300rem 60rem 0;
+      margin: 0;
       padding: 30rem 70rem 15rem;
       min-height: 100rem;
+      &_one {
+        padding: 30rem 30rem 15rem;
+      }
 
       &_img{
         margin: 30rem 60rem 0;
         padding: 25rem 25rem;
       }
+    }
+
+    &__button_close {
+      width: 25rem;
+      height: 25rem;
+      top: 20rem;
+      right: 20rem;
     }
   }
 }

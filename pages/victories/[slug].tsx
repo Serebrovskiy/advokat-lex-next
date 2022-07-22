@@ -6,28 +6,39 @@ import React, {Children, useContext, useState} from "react";
 import stylesMain from '../../styles/victories/main.module.scss';
 import stylesInner from '../../styles/victories/inner.module.scss';
 import VictoriesPage from "./index";
+import { Context } from '../../popupsContext';
 
 export default function Inner({ services, cases, currentCase }) {
     // console.log('services', services)
+    let src = process.env.API_URL_LOCAL || 'http://194.67.92.119:1337';
 
-    console.log('currentCase', currentCase)
+    //console.log('currentCase', currentCase)
+    const { 
+        handleOpenPopup, 
+        closeMobileMenu, 
+        toggleMobileMenu, 
+        isOpenPopup, 
+        isOpenMobileMenu, 
+        namePopup 
+      } = useContext(Context);
    
-
     return (
-        <VictoriesPage cases={cases} services={services} victories={undefined} category={currentCase.chapter}>
+        <VictoriesPage cases={cases} services={services} currentCase={currentCase}>
           <div className={stylesInner.victories_inner__container}>
             <h1 className={stylesInner.victories_inner__title}>{currentCase.title}</h1>
             <p className={stylesInner.victories_inner__text}>{currentCase.text}</p>
             <ul className={stylesInner.victories_inner__images}>
-                {cases.map(item => {
+                {currentCase.img.data.map(item => { 
                     return (
-                       <li className={stylesInner.victories_inner__images__item}>
-
+                       <li className={stylesInner.victories_inner__images__item} key={item.id} onClick={() => handleOpenPopup(`oneImage${JSON.stringify(item)}`)}>
+                         <Image loader={() => `${src+item.attributes.url}?w=173`} src={src+item.attributes.url} width={173} height={277} alt='' />
                        </li>
                     )
                 })}
             </ul>
           </div> 
+
+          <h2 className={stylesInner.victories_inner__subtitle}>Другие выигранные дела:</h2>
         </VictoriesPage>
     )
 }

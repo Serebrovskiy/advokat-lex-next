@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from "next/link";
 import { MainLayout } from "../../components/MainLayout";
-import React, {Children, useContext, useState} from "react";
+import React, {Children, useContext, useEffect, useState} from "react";
 import Header from "../../components/sections/Header";
 import { Context } from "../../popupsContext";
 import { MobileMenu } from "../../components/MobileMenu";
@@ -11,7 +11,7 @@ import Footer from "../../components/sections/Footer";
 import styles from '../../styles/services/inner.module.scss';
 import stylesMain from '../../styles/victories/main.module.scss';
 
-export default function VictoriesPage({ services, cases, children, victories, category }) {
+export default function VictoriesPage({ services, cases, children, currentCase }) {
   const { 
     handleOpenPopup, 
     closeMobileMenu, 
@@ -21,20 +21,27 @@ export default function VictoriesPage({ services, cases, children, victories, ca
     namePopup 
   } = useContext(Context);
 
-  const [categoryFilter, setCategoryFilter] = useState('ВЕСЬ АРХИВ');
+  const [categoryFilter, setCategoryFilter] = useState(currentCase ? currentCase.chapter : 'ВЕСЬ АРХИВ');
+  const [currentCategory, setCurrentCategory] = useState(currentCase ? currentCase.chapter : '');//
 
-  const onChangeCategoryFilter = (category) => {
-    console.log('category', category)
-    setCategoryFilter(category);
+  const onChangeCategoryFilter = (nameCategory) => {
+   // console.log('nameCategory', nameCategory)
+      setCategoryFilter(nameCategory);
   };
 
-  //  console.log('service', service )
+  const onChangeCurrentCategory = (category) => {
+  //  console.log('category', category)
+    setCategoryFilter(category);
+    setCurrentCategory(category);
+  };
+
+  //console.log('currentCase', currentCase )
   let src = process.env.API_URL_LOCAL || 'http://194.67.92.119:1337';
   
     return (
       <MainLayout 
-        title={victories ? victories.title : 'Юридические услуги | компания «Адвокат-LEX»'}
-        description={victories ? victories.description : 'Мы оказываем квалифицированную юридическую помощь по вопросам: семейного, жилищного, уголовного, административного и иного законодательства. Консультация юриста. Услуги юриста. Юридические услуги. Юридическая помощь'}
+         title={currentCase ? `«Адвокат-LEX» | ${currentCase.title}` : 'Юридические услуги | компания «Адвокат-LEX»'}
+         description={currentCase ? currentCase.text : 'Мы оказываем квалифицированную юридическую помощь по вопросам: семейного, жилищного, уголовного, административного и иного законодательства. Консультация юриста. Услуги юриста. Юридические услуги. Юридическая помощь'}
       >
         <Header onOpenPopup={handleOpenPopup} onClose={closeMobileMenu} toggleMobileMenu={toggleMobileMenu} activePage='victories' />
         <section className={`${stylesMain.victories_main}`}>
@@ -42,28 +49,33 @@ export default function VictoriesPage({ services, cases, children, victories, ca
             <Link href={`/`}>
               <a className={stylesMain.victories_main__path_text}>Главная &nbsp;&#62;&nbsp;&nbsp;</a>
             </Link>
-            <a className={stylesMain.victories_main__path_text}>Выигранные дела</a>
+            <Link href={`/victories`} > 
+              <a className={stylesMain.victories_main__path_text}>Выигранные дела</a>
+            </Link>
           </div>
           <div className={stylesMain.victories_main__container}>
             <ul className={`${styles.services_main_inner__nav} ${stylesMain.victories_main__nav}`}>
-                  <li>
-                      <div className={`${styles.services_main_inner__nav_item}`} onClick={() => onChangeCategoryFilter('ВЕСЬ АРХИВ')}>
+                  <li> 
+                    <Link href={`/victories`} > 
+                      <div className={`${styles.services_main_inner__nav_item} ${categoryFilter == 'ВЕСЬ АРХИВ' ? styles.services_main_inner__nav_item_active : ''}`} onClick={() => onChangeCategoryFilter('ВЕСЬ АРХИВ')}>
                         <div className={styles.services_main_inner__nav_item_img}>
                           <Image loader={() => `/victories/all-archive-victories.svg?w=38`} src={`/victories/all-archive-victories.svg`} width={38} height={30} alt="иконка" />
                         </div>
                         <p className={styles.services_main_inner__nav_item_text}>ВЕСЬ АРХИВ</p>
+                        <p className={`${styles.services_main_inner__nav_item_text_color} ${stylesMain.victories_main__nav_item_text_color}`}>{cases.length}&nbsp;шт</p>
                       </div>
+                    </Link>
                   </li>
                 {
-                   services.map((item)=>{
+                   services.map((item) => {
                       return ( 
                         <li key={item.id}>
-                            <div onClick={() => onChangeCategoryFilter(item.attributes.title)} className={`${styles.services_main_inner__nav_item} ${stylesMain.victories_main__nav_item} ${item.attributes.slug == null ? styles.services_main_inner__nav_item_active : ''}`}> {/* service.slug */}
-                              <div className={styles.services_main_inner__nav_item_img}>
-                                <Image loader={() => `${src+item.attributes.icon.data.attributes.url}?w=38`} src={`${src+item.attributes.icon.data.attributes.url}`} width={38} height={30} alt="иконка" />
-                              </div>
-                              <p className={styles.services_main_inner__nav_item_text}>{item.attributes.title}</p>
+                          <div onClick={() => onChangeCategoryFilter(item.attributes.title)} className={`${styles.services_main_inner__nav_item} ${stylesMain.victories_main__nav_item} ${categoryFilter == item.attributes.title ? styles.services_main_inner__nav_item_active : ''}`}> 
+                            <div className={styles.services_main_inner__nav_item_img}>
+                              <Image loader={() => `${src+item.attributes.icon.data.attributes.url}?w=38`} src={`${src+item.attributes.icon.data.attributes.url}`} width={38} height={30} alt="иконка" />
                             </div>
+                              <p className={styles.services_main_inner__nav_item_text}>{item.attributes.title}</p>
+                          </div>
                         </li>
                   )})
                 }
@@ -80,23 +92,28 @@ export default function VictoriesPage({ services, cases, children, victories, ca
               </ul>
 
               <div className={stylesMain.victories_main__content_container}>
-                
-                {
-                ((categoryFilter == category) || 
-                (categoryFilter == 'ВЕСЬ АРХИВ')) && 
-                children                                
+              
+                { //активирует внутреннюю страницу
+                  (categoryFilter == currentCategory) && children                                
                 }
                 
-                <div className={stylesMain.victories_main__title_container}>
-                  <h1 className={stylesMain.victories_main__title}>Выигрынные дела</h1>
-                  <div className={stylesMain.victories_main__icon_win}>
-                    <Image loader={() => `/victories/win.png?w=84`} src={`/victories/win.png`} width={84} height={100} alt="иконка" />
+                { //убирает заголовок при включении внутренней страницы
+                  !currentCategory 
+                  &&
+                  <div className={stylesMain.victories_main__title_container}>
+                    <h1 className={stylesMain.victories_main__title}>Выигрынные дела</h1>
+                    <div className={stylesMain.victories_main__icon_win}>
+                      <Image loader={() => `/victories/win.png?w=84`} src={`/victories/win.png`} width={84} height={100} alt="иконка" />
+                    </div>
+                    <p className={stylesMain.victories_main__subtitle}>{categoryFilter}</p>
                   </div>
-                  <p className={stylesMain.victories_main__subtitle}>{categoryFilter}</p>
-                </div>
+                }
               <ul className={stylesMain.victories_main__content}>
-                {cases.map(item => {
-                  if(categoryFilter == item.attributes.chapter || categoryFilter == 'ВЕСЬ АРХИВ'){
+                {cases.map((item) => {
+                  const currentCaseSlug = currentCase ? currentCase.slug : '';
+                  if((((categoryFilter == item.attributes.chapter) && 
+                  (currentCaseSlug !=item.attributes.slug)) || 
+                  categoryFilter == 'ВЕСЬ АРХИВ')){
                 //console.log('item', item)
                  return (  
                     <li className={stylesMain.victories_main__content_item} key={item.id}>
@@ -106,8 +123,8 @@ export default function VictoriesPage({ services, cases, children, victories, ca
                       <div className={stylesMain.victories_main__content_item_container}>
                         <h3 className={stylesMain.victories_main__content_item_title}>{item.attributes.title}</h3>
                         <p className={stylesMain.victories_main__content_item_text}>{item.attributes.text}</p>
-                        <Link href={`/victories/${item.attributes.slug}`}>
-                          <a className={stylesMain.victories_main__content_item_btn}>Подробнее</a>
+                        <Link href={`/victories/${item.attributes.slug}`} >
+                          <a className={stylesMain.victories_main__content_item_btn} onClick={() => onChangeCurrentCategory(item.attributes.chapter)}>Подробнее</a>
                         </Link>
                       </div>
                     </li>
