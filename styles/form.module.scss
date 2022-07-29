@@ -87,6 +87,24 @@
     }
   }
 
+  &__one {
+
+    &__container {
+      padding: 30rem 30rem 15rem;
+      overflow-y: auto;
+    }
+    &__image {
+      display: flex;
+      justify-content: center;
+
+      width: 750rem;
+      height: 1030rem;
+      padding: 5rem;
+      margin: 20rem 0;
+    }
+
+  }
+
   @media screen and (max-width: 768px) {
     &__input {
       width: 400rem;
@@ -104,8 +122,21 @@
       &_container {
         width: 530rem;
         height: 750rem;
-
       }
+    }
+
+    &__one {
+
+      &__container {
+        padding: 0;
+      }
+      &__image {
+        width: 550rem;
+        height: 800rem;
+        padding: 5rem;
+        margin: 10rem 0;
+      }
+
     }
   }
 }

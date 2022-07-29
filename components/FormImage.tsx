@@ -11,10 +11,10 @@ export function FormImage({ caseData }){
   let src = process.env.API_URL_LOCAL || 'http://194.67.92.119:1337';
   const imageUrl = data.attributes.url;
 
-  //console.log('imageUrl', imageUrl)
-
+  //console.log('imageUrl', imageUrl) 
   return (
-      <div className={`${styles.form__image_container} ${styles.form__image_container_one}`}> 
+    <div className={styles.form__one__container}>
+      <div className={`${styles.form__one__image}`}> 
         <Image loader={() => `${src + imageUrl}?w=564`} 
         src={src + imageUrl} 
         width={750} 
@@ -22,5 +22,6 @@ export function FormImage({ caseData }){
         alt=''
         />
       </div>
+    </div>
   )  
 }
