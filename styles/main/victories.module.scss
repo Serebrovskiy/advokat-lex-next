@@ -1,6 +1,6 @@
 .victories {
     height: 760rem;
-    background-image: url('../public/bg/bg-victories.png');
+    background-image: url('../../public/bg/bg-victories.png');
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
 @media screen and (max-width: 768px) {
   .victories {
     height: 960rem;
-    background-image: url('../public/bg/bg-victories-mobile.png');
+    background-image: url('../../public/bg/bg-victories-mobile.png');
 
     &_button {
       width: 416rem;

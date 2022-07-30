@@ -3,7 +3,7 @@ import Link from "next/link";
 import ScrollableAnchor from 'react-scrollable-anchor';
 import { ContainerWithTabsServices } from '../ContainerWithTabsServices';
 import { ContainerWithTabsServicesMobile } from '../ContainerWithTabsServicesMobile';
-import styles from '../../styles/services.module.scss';
+import styles from '../../styles/main/services.module.scss';
 
 export default function Services(){
     return (

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from "next/link";
 import ScrollableAnchor from 'react-scrollable-anchor';
-import styles from '../../styles/command.module.scss';
+import styles from '../../styles/main/command.module.scss';
 
 export default function Command(){
     return (

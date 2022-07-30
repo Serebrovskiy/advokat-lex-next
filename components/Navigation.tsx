@@ -34,7 +34,14 @@ export function Navigation({ active, onClose }){
         <li className={`${active == 'victories' ? styles.nav__link_active : ''} ${stylesMobile.mobile_menu__item}`}>
           <Link href={'/victories'}>
             <a className={styles.nav__link}>
-              Выигранные дела
+              Кейсы
+            </a>
+          </Link>
+        </li>
+        <li className={`${active == 'articles' ? styles.nav__link_active : ''} ${stylesMobile.mobile_menu__item}`}>
+          <Link href={'/articles'}>
+            <a className={styles.nav__link}>
+              Статьи
             </a>
           </Link>
         </li>

@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { Navigation } from '../Navigation'
-import styles from '../../styles/header.module.scss';
+import styles from '../../styles/header/header.module.scss';
 
 export default function Header({ onOpenPopup, onClose, toggleMobileMenu, activePage }){
     return (
-      <header className={styles.header} data-aos="zoom-in"> 
+      <header className={styles.header} >   {/* data-aos="zoom-in" */} 
         <div className={styles.header_logo} >
           <Image loader={() => "/header/logo.png?w=250"} src={"/header/logo.png"} width={250} height={67} alt="Логотип"  />
         </div>

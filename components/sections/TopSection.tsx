@@ -1,7 +1,7 @@
 import { VideoBackground } from '../VideoBackground'
 import Header from './Header'
 import Greeting from './Greeting'
-import styles from '../../styles/top-section.module.scss';
+import styles from '../../styles/main/top-section.module.scss';
 
 export default function TopSection({onOpenPopup, onClose, toggleMobileMenu, videoBackground}){
     return (

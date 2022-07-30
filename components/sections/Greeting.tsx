@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../../styles/greeting.module.scss';
+import styles from '../../styles/main/greeting.module.scss';
 
 export default function Greeting(){
     return (

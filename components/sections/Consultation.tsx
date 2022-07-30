@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ScrollableAnchor from 'react-scrollable-anchor';
-import styles from '../../styles/consultation.module.scss';
+import styles from '../../styles/main/consultation.module.scss';
 
 export default function Consultation(){
     return (

@@ -54,15 +54,19 @@ export default function VictoriesPage({ services, cases, children, currentCase }
             </Link>
           </div>
           <div className={stylesMain.victories_main__container}>
-            <ul className={`${styles.services_main_inner__nav} ${stylesMain.victories_main__nav}`}>
+            <ul className={`${styles.services_inner__nav} ${stylesMain.victories_main__nav}`}>
                   <li> 
                     <Link href={`/victories`} > 
-                      <div className={`${styles.services_main_inner__nav_item} ${categoryFilter == 'ВЕСЬ АРХИВ' ? styles.services_main_inner__nav_item_active : ''}`} onClick={() => onChangeCategoryFilter('ВЕСЬ АРХИВ')}>
-                        <div className={styles.services_main_inner__nav_item_img}>
-                          <Image loader={() => `/victories/all-archive-victories.svg?w=38`} src={`/victories/all-archive-victories.svg`} width={38} height={30} alt="иконка" />
-                        </div>
-                        <p className={styles.services_main_inner__nav_item_text}>ВЕСЬ АРХИВ</p>
-                        <p className={`${styles.services_main_inner__nav_item_text_color} ${stylesMain.victories_main__nav_item_text_color}`}>{cases.length}&nbsp;шт</p>
+                      <div className={`${styles.services_inner__nav_item} ${categoryFilter == 'ВЕСЬ АРХИВ' ? styles.services_inner__nav_item_active : ''}`} onClick={() => onChangeCategoryFilter('ВЕСЬ АРХИВ')}>
+                        <div className={`${styles.services_inner__nav_item_img} `}>
+                        {categoryFilter == 'ВЕСЬ АРХИВ' ?
+                          <Image loader={() => `/victories/all-archive-victories-select.svg?w=38`} src={`/victories/all-archive-victories-select.svg`} width={38} height={30} alt="иконка" />
+                          :
+                          <Image loader={() => `/victories/all-archive-victories.svg?w=38`} src={`/victories/all-archive-victories.svg`} width={38} height={30} alt="иконка" />  
+                        }
+                          </div>
+                        <p className={styles.services_inner__nav_item_text}>ВЕСЬ АРХИВ</p>
+                        <p className={`${stylesMain.victories_main__nav_item_text_color} ${categoryFilter == 'ВЕСЬ АРХИВ' && stylesMain.victories_main__nav_item_text_color_active}`}>{cases.length}&nbsp;шт</p>
                       </div>
                     </Link>
                   </li>
@@ -70,18 +74,18 @@ export default function VictoriesPage({ services, cases, children, currentCase }
                    services.map((item) => {
                       return ( 
                         <li key={item.id}>
-                          <div onClick={() => onChangeCategoryFilter(item.attributes.title)} className={`${styles.services_main_inner__nav_item} ${stylesMain.victories_main__nav_item} ${categoryFilter == item.attributes.title ? styles.services_main_inner__nav_item_active : ''}`}> 
-                            <div className={styles.services_main_inner__nav_item_img}>
+                          <div onClick={() => onChangeCategoryFilter(item.attributes.title)} className={`${styles.services_inner__nav_item} ${stylesMain.victories_main__nav_item} ${categoryFilter == item.attributes.title ? styles.services_inner__nav_item_active : ''}`}> 
+                            <div className={styles.services_inner__nav_item_img}>
                               <Image loader={() => `${src+item.attributes.icon.data.attributes.url}?w=38`} src={`${src+item.attributes.icon.data.attributes.url}`} width={38} height={30} alt="иконка" />
                             </div>
-                              <p className={styles.services_main_inner__nav_item_text}>{item.attributes.title}</p>
+                              <p className={styles.services_inner__nav_item_text}>{item.attributes.title}</p>
                           </div>
                         </li>
                   )})
                 }
                   <li>
                     <Link href={`/review`}> 
-                      <a className={`${styles.services_main_inner__nav_item}`}>
+                      <a className={`${styles.services_inner__nav_item}`}>
                         <div className={stylesMain.victories_main__nav_item_img}>
                           <Image loader={() => `/victories/review-icon.png?w=42`} src={`/victories/review-icon.png`} width={42} height={58} alt="иконка" />
                         </div>
@@ -114,8 +118,8 @@ export default function VictoriesPage({ services, cases, children, currentCase }
                   if((((categoryFilter == item.attributes.chapter) && 
                   (currentCaseSlug !=item.attributes.slug)) || 
                   categoryFilter == 'ВЕСЬ АРХИВ')){
-                //console.log('item', item)
-                 return (  
+                console.log('item', item)
+                  return (  
                     <li className={stylesMain.victories_main__content_item} key={item.id}>
                       <div className={stylesMain.victories_main__content_item_img}>
                       <Image loader={() => `${src+item.attributes.img.data[0].attributes.url}?w=192`} src={src+item.attributes.img.data[0].attributes.url} width={192} height={280} alt='' />
@@ -128,7 +132,7 @@ export default function VictoriesPage({ services, cases, children, currentCase }
                         </Link>
                       </div>
                     </li>
-                  )}})};
+                  )}}).reverse()};
               </ul>
             </div>
           </div>

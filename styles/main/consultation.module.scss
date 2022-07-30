@@ -1,7 +1,7 @@
 .consultation {
     height: 508rem;
     background-color: #fff;
-    background-image: url('../public/bg/bg-consultation.png');
+    background-image: url('../../public/bg/bg-consultation.png');
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -83,7 +83,7 @@
 @media screen and (max-width: 768px) {
   .consultation {
     height: 1170rem;
-    background-image: url('../public/bg/bg-consultation-mobile.png');
+    background-image: url('../../public/bg/bg-consultation-mobile.png');
     position: relative;
     &_title {
       font-size: 54rem;

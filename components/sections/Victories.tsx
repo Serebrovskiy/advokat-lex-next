@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import ScrollableAnchor from 'react-scrollable-anchor';
 import { Slider } from '../../components/Slider'
-import styles from '../../styles/victories.module.scss';
+import styles from '../../styles/main/victories.module.scss';
 
 export default function Victories({ cases, onOpenPopup }){
     return (

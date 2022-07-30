@@ -1,6 +1,6 @@
 .command {
     height: 1230rem;
-    background-image: url('../public/bg/bg-command.png');
+    background-image: url('../../public/bg/bg-command.png');
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -151,7 +151,7 @@
   @media screen and (max-width: 768px) {
     .command {
       height: 2000rem;
-      background-image: url('../public/bg/bg-command-mobile.png');
+      background-image: url('../../public/bg/bg-command-mobile.png');
 
       &_chapter {
         display: none;

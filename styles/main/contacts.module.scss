@@ -1,6 +1,6 @@
 .contacts {
   height: 937rem;
-  background-image: url('../public/bg/bg-contacts.png');
+  background-image: url('../../public/bg/bg-contacts.png');
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -147,7 +147,7 @@
 @media screen and (max-width: 768px) {
 .contacts { 
     height: 3000rem;
-    background-image: url('../public/bg/bg-contacts-mobile.png');
+    background-image: url('../../public/bg/bg-contacts-mobile.png');
     position: relative;
 
     &_chapter {

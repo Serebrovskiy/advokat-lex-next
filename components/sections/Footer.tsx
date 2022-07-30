@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from "../../styles/footer.module.scss"
+import styles from "../../styles/footer/footer.module.scss"
 
 export default function Footer(){
 
@@ -32,6 +32,13 @@ export default function Footer(){
               <Link href={'/victories'}>
                 <a className={styles.footer__container_nav_link} >
                   Выигранные дела
+                </a>
+              </Link>
+            </li>
+            <li className={styles.footer__container_nav_item}>
+              <Link href={'/articles'}>
+                <a className={styles.footer__container_nav_link} >
+                  Статьи
                 </a>
               </Link>
             </li>

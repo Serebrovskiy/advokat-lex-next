@@ -1,6 +1,6 @@
 .about {
     height: 786rem;
-    background-image: url('../public/bg/bg-about.png');
+    background-image: url('../../public/bg/bg-about.png');
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -105,7 +105,7 @@
 @media screen and (max-width: 768px) {
   .about {
     height: 1760rem;
-    background-image: url('../public/bg/bg-about-mobile.png');
+    background-image: url('../../public/bg/bg-about-mobile.png');
     justify-content: end;
     &_container {
       margin: 194rem auto 220rem;

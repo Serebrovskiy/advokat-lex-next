@@ -1,4 +1,4 @@
-.services_main_inner {
+.services_inner {
   min-height: 1120rem;
   background-image: url('../../public/bg/bg-services-inner.png');
   background-size: cover;
@@ -194,7 +194,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .services_main_inner {
+  .services_inner {
     overflow: hidden;
     background-image: url('../../public/bg/bg-services-inner-mobile.png');
     background-size: contain;
@@ -266,7 +266,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .services_main_inner {
+  .services_inner {
 
     &__title_container {
       display: flex;

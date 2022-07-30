@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ScrollableAnchor from 'react-scrollable-anchor'
 import { ContainerWithTabsMap } from '../ContainerWithTabsMap';
 import { ContainerWithTabsMapMobile } from '../ContainerWithTabsMapMobile';
-import styles from '../../styles/contacts.module.scss'
+import styles from '../../styles/main/contacts.module.scss'
 
 export default function Contacts({ onOpenPopup }){
     return (

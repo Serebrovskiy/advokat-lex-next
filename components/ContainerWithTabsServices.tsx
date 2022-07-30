@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/container-with-tabs.module.scss'
-import styles_services from '../styles/services.module.scss';
+import styles_services from '../styles/main/services.module.scss';
 import Link from 'next/link';
 
 export function ContainerWithTabsServices({ firstName, secondName }){
