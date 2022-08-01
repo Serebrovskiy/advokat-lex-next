@@ -101,7 +101,7 @@ export default function ArticlesPage({services, articles, children, currentArtic
                     </div>
                   </div>
                 }
-
+                {articles.length > 1 &&
                 <ul className={stylesMain.articles_main__content}>
                  {articles.map((item) => {
                   const currentCaseSlug = currentArticle ? currentArticle.slug : '';
@@ -124,6 +124,7 @@ export default function ArticlesPage({services, articles, children, currentArtic
                     </li>
                   )}}).reverse()};
                 </ul>
+                }
               </div>
             </div>
 

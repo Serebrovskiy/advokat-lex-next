@@ -34,13 +34,13 @@ export default function Inner({ services, articles, currentArticle }) {
               <h1 className={stylesInner.articles_inner__title}>{currentArticle.title}</h1>
             </div>
 
-            <p className={stylesInner.articles_inner__text}>
+            <div className={stylesInner.articles_inner__text}>
               <ReactMarkdown>{currentArticle.content}</ReactMarkdown>
-            </p>
+            </div>
  
           </div> 
 
-          {/* <h2 className={stylesInner.articles_inner__subtitle}>Другие выигранные дела:</h2> */}
+          <h2 className={stylesInner.articles_inner__subtitle}>Другие статьи:</h2>
 
         </ArticlesPage>
     )

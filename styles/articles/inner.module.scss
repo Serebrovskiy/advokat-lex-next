@@ -24,7 +24,7 @@
         max-width: 1000rem;
         height: 680rem;  
         padding: 0 20rem 0 0;
-        margin: 22rem 0 0;
+        margin: 40rem 0 0;
     
         font-style: italic;font-style: italic;
         font-weight: 500;
@@ -49,7 +49,7 @@
         font-weight: 700;
         font-size: 33rem;
         line-height: 130%;
-        margin: 0 22rem 0 0;
+        margin: 50rem 22rem 0 0;
     }
 }
 
@@ -63,6 +63,7 @@
         }
         &__text {
             font-size: 20rem;
+            width: 670rem;
         }
         &__images {
             flex-wrap: nowrap;
