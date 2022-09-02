@@ -29,7 +29,7 @@ export default function Inner({ services, articles, currentArticle }) {
           <div className={stylesInner.articles_inner__container}>
             <div className={stylesInner.articles_inner__title_container}>
               <div className={stylesInner.articles_inner__img}>
-                <Image loader={() => `${src+currentArticle.img.data.attributes.url}?w=382`} src={src+currentArticle.img.data.attributes.url} width={382} height={255} alt='' />
+                <Image loader={() => `${src+currentArticle.img.data.attributes.url}?w=382`} src={src+currentArticle.img.data.attributes.url} width={382} height={255} objectFit='cover' alt='' />
               </div>
               <h1 className={stylesInner.articles_inner__title}>{currentArticle.title}</h1>
             </div>

@@ -10,6 +10,8 @@ import Footer from "../../components/sections/Footer";
 
 import styles from '../../styles/services/inner.module.scss';
 import stylesMain from '../../styles/articles/main.module.scss';
+import stylesUI from '../../styles/UI/ui.module.scss';
+import ReactMarkdown from 'react-markdown';
 
 export default function ArticlesPage({services, articles, children, currentArticle }) {
   const { 
@@ -22,7 +24,9 @@ export default function ArticlesPage({services, articles, children, currentArtic
   } = useContext(Context);
 
   const [categoryFilter, setCategoryFilter] = useState(currentArticle ? currentArticle.chapter : 'ВЕСЬ АРХИВ');
-  const [currentCategory, setCurrentCategory] = useState(currentArticle ? currentArticle.chapter : '');//
+  const [currentCategory, setCurrentCategory] = useState(currentArticle ? currentArticle.chapter : '');
+  const [showPostsOnPage, setShowPostsOnPage] = useState(3);
+  let conuntPosts = 0; //счетчик постов для внутренних страниц
 
   const onChangeCategoryFilter = (nameCategory) => {
    // console.log('nameCategory', nameCategory)
@@ -34,14 +38,18 @@ export default function ArticlesPage({services, articles, children, currentArtic
     setCategoryFilter(category);
     setCurrentCategory(category);
   };
+  const handleShowMorePosts = () => {
+    console.log('showPostsOnPage', showPostsOnPage);  
+    setShowPostsOnPage(showPostsOnPage + 3);  
+  };
 
   //console.log('currentCase', currentCase )
   let src = process.env.API_URL_LOCAL || 'http://194.67.92.119:1337';
 
   return (
     <MainLayout 
-    title={currentArticle ? `«Адвокат-LEX» | ${currentArticle.title}` : 'Юридические услуги | компания «Адвокат-LEX»'}
-    description={currentArticle ? currentArticle.text : 'Мы оказываем квалифицированную юридическую помощь по вопросам: семейного, жилищного, уголовного, административного и иного законодательства. Консультация юриста. Услуги юриста. Юридические услуги. Юридическая помощь'}
+    title={currentArticle ? `«Адвокат-LEX» | ${currentArticle.title}` : 'Полезная информация | компания «Адвокат-LEX»'}
+    description={currentArticle ? currentArticle.content : 'Мы оказываем квалифицированную юридическую помощь по вопросам: семейного, жилищного, уголовного, административного и иного законодательства. Консультация юриста. Услуги юриста. Юридические услуги. Юридическая помощь'}
     >
       <Header onOpenPopup={handleOpenPopup} onClose={closeMobileMenu} toggleMobileMenu={toggleMobileMenu} activePage='articles' />
 
@@ -53,6 +61,7 @@ export default function ArticlesPage({services, articles, children, currentArtic
             <Link href={`/articles`} > 
               <a className={stylesMain.articles_main__path_text}>Статьи</a>
             </Link>
+            {currentArticle && <p className={`${stylesMain.articles_main__path_text} ${stylesMain.articles_main__path_text_default}`}> &nbsp;&#62;&nbsp;&nbsp;{currentArticle.chapter}</p>}
           </div>
           <div className={stylesMain.articles_main__container}>
             <ul className={`${styles.services_inner__nav} ${stylesMain.articles_main__nav}`}>
@@ -101,29 +110,54 @@ export default function ArticlesPage({services, articles, children, currentArtic
                     </div>
                   </div>
                 }
-                {articles.length > 1 &&
                 <ul className={stylesMain.articles_main__content}>
-                 {articles.map((item) => {
-                  const currentCaseSlug = currentArticle ? currentArticle.slug : '';
+                 {articles.map((item, index) => {
+                  const currentArticleSlug = currentArticle ? currentArticle.slug : ''
                   if((((categoryFilter == item.attributes.chapter) && 
-                  (currentCaseSlug !=item.attributes.slug)) || 
+                  (currentArticleSlug !=item.attributes.slug)) || 
                   categoryFilter == 'ВЕСЬ АРХИВ')){
-                  //console.log('item', item)
-                  return (  
-                    <li className={stylesMain.articles_main__content_item} key={item.id}>
-                      <div className={stylesMain.articles_main__content_item_img}>
-                        <Image loader={() => `${src+item.attributes.img.data.attributes.url}?w=275`} src={src+item.attributes.img.data.attributes.url} width={275} height={280} objectFit='cover' alt='' />
-                      </div>
-                      <div className={stylesMain.articles_main__content_item_container}>
-                        <h3 className={stylesMain.articles_main__content_item_title}>{item.attributes.title}</h3>
-                        <p className={stylesMain.articles_main__content_item_text}>{item.attributes.content}</p>
-                        <Link href={`/articles/${item.attributes.slug}`} >
-                          <a className={stylesMain.articles_main__content_item_btn} onClick={() => onChangeCurrentCategory(item.attributes.chapter)}>Подробнее</a>
-                        </Link>
-                      </div>
-                    </li>
-                  )}}).reverse()};
+                  
+                  if(typeof window !== "undefined" && window.innerWidth < 768){    //for mobile
+                    console.log('showPostsOnPage', showPostsOnPage)
+                    conuntPosts++;
+                    if(conuntPosts <= showPostsOnPage){ 
+                      return (  
+                        <li className={stylesMain.articles_main__content_item} key={item.id}>
+                          <div className={stylesMain.articles_main__content_item_img}>
+                            <Image loader={() => `${src+item.attributes.img.data.attributes.url}?w=275`} src={src+item.attributes.img.data.attributes.url} width={275} height={280} objectFit='cover' alt='' />
+                          </div>
+                          <div className={stylesMain.articles_main__content_item_container}>
+                            <h3 className={stylesMain.articles_main__content_item_title}>{item.attributes.title}</h3>
+                            <p className={stylesMain.articles_main__content_item_text}>{item.attributes.content}</p>
+                            {/* <div className={stylesMain.articles_main__content_item_text}><ReactMarkdown>{item.attributes.content}</ReactMarkdown></div> */}
+                            <Link href={`/articles/${item.attributes.slug}`} >
+                              <a className={stylesMain.articles_main__content_item_btn} onClick={() => onChangeCurrentCategory(item.attributes.chapter)}>Подробнее</a>
+                            </Link>
+                          </div>
+                        </li>
+                        )}}else{  //for desctop
+                          return (  
+                            <li className={stylesMain.articles_main__content_item} key={item.id}>
+                              <div className={stylesMain.articles_main__content_item_img}>
+                                <Image loader={() => `${src+item.attributes.img.data.attributes.url}?w=275`} src={src+item.attributes.img.data.attributes.url} width={275} height={280} objectFit='cover' alt='' />
+                              </div>
+                              <div className={stylesMain.articles_main__content_item_container}>
+                                <h3 className={stylesMain.articles_main__content_item_title}>{item.attributes.title}</h3>
+                                <p className={stylesMain.articles_main__content_item_text}>{item.attributes.content}</p>
+                                <Link href={`/articles/${item.attributes.slug}`} >
+                                  <a className={stylesMain.articles_main__content_item_btn} onClick={() => onChangeCurrentCategory(item.attributes.chapter)}>Подробнее</a>
+                                </Link>
+                              </div>
+                            </li>
+                    )}}})}
                 </ul>
+                { conuntPosts > showPostsOnPage &&  //articles.length
+                  <div className={stylesUI.ui__show_more} onClick={() => handleShowMorePosts()}>
+                    <p className={stylesUI.ui__show_more__text}>Смотреть еще</p>
+                    <div className={stylesUI.ui__show_more__arrow}>
+                      <Image loader={() => `/icons/arrow-down-white.svg?w=60`} src={'/icons/arrow-down-white.svg'} width={60} height={60} alt='' />
+                    </div>
+                  </div>
                 }
               </div>
             </div>
@@ -163,7 +197,7 @@ export const getServerSideProps = async ({ query, req }) => {
   return {
     props: {
       services: services.data,
-      articles: articles.data
+      articles: articles?.data.reverse()
       // service: service.data[0].attributes
     }
   }

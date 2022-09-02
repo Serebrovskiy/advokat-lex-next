@@ -7,6 +7,7 @@ import stylesMain from '../../styles/victories/main.module.scss';
 import stylesInner from '../../styles/victories/inner.module.scss';
 import VictoriesPage from "./index";
 import { Context } from '../../popupsContext';
+import ReactMarkdown from 'react-markdown';
 
 export default function Inner({ services, cases, currentCase }) {
     // console.log('services', services)
@@ -26,7 +27,7 @@ export default function Inner({ services, cases, currentCase }) {
         <VictoriesPage cases={cases} services={services} currentCase={currentCase}>
           <div className={stylesInner.victories_inner__container}>
             <h1 className={stylesInner.victories_inner__title}>{currentCase.title}</h1>
-            <p className={stylesInner.victories_inner__text}>{currentCase.text}</p>
+            <div className={stylesInner.victories_inner__text}><ReactMarkdown>{currentCase.content}</ReactMarkdown></div>
             <ul className={stylesInner.victories_inner__images}>
                 {currentCase.img.data.map(item => { 
                     return (

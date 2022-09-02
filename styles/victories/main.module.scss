@@ -23,6 +23,11 @@
             cursor: pointer;
             opacity: .8;
           }
+
+          &_default:hover {
+            cursor: default;
+            opacity: .5;
+          }
         }
     }
 
@@ -227,9 +232,11 @@
     &__content {
       width: 650rem;
       min-height: 450rem;
-      max-height: 850rem;
+      //max-height: 850rem;
+      max-height: none;
       padding: 0 0rem 0 0;
       margin: 30rem 0 0;
+      overflow: visible;
 
       &_item {
         height: 315rem;

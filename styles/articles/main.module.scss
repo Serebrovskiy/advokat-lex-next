@@ -23,6 +23,11 @@
             cursor: pointer;
             opacity: .8;
           }
+
+          &_default:hover {
+            cursor: default;
+            opacity: .5;
+          }
         }
     }
 
@@ -149,6 +154,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            padding: 0 20rem 0 0;
           }
           &_title {
             font-weight: 700;
@@ -218,21 +224,24 @@
     &__content {
       width: 650rem;
       min-height: 450rem;
-      max-height: 850rem;
+      max-height: none;
+      //max-height: 850rem;
       padding: 0 0rem 0 0;
       margin: 10rem 0 0;
+      overflow: visible;
 
       &_item {
         height: 315rem;
         margin: 20rem 0 0;
 
         &_img {
-          width: 178rem;
-          height: 233rem;
-          margin: 0 30rem 0 25rem;
+          width: 200rem;
+          height: 200rem;
+          margin: 0 40rem 0rem 0;
         }
         &_container {
-          width: 382rem;
+          width: 400rem;
+          height: 200rem;
         }
         &_title {
           font-size: 20rem;
@@ -241,6 +250,7 @@
         &_text {
           font-size: 16rem;
           line-height: 25rem;
+          // margin: -30rem 0 0;
         }
 
       }
