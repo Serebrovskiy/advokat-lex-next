@@ -93,7 +93,7 @@ export default function VictoriesPage({ services, cases, children, currentCase }
                   )})
                 }
                   <li>
-                    <Link href={`/review`}> 
+                    <Link href={`/reviews`}> 
                       <a className={`${styles.services_inner__nav_item}`}>
                         <div className={stylesMain.victories_main__nav_item_img}>
                           <Image loader={() => `/victories/review-icon.png?w=42`} src={`/victories/review-icon.png`} width={42} height={58} alt="иконка" />

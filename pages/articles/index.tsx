@@ -118,7 +118,6 @@ export default function ArticlesPage({services, articles, children, currentArtic
                   categoryFilter == 'ВЕСЬ АРХИВ')){
                   
                   if(typeof window !== "undefined" && window.innerWidth < 768){    //for mobile
-                    console.log('showPostsOnPage', showPostsOnPage)
                     conuntPosts++;
                     if(conuntPosts <= showPostsOnPage){ 
                       return (  

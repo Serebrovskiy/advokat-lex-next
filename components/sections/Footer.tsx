@@ -19,11 +19,6 @@ export default function Footer(){
               </a>
             </li>
             <li className={styles.footer__container_nav_item}>
-              <a href="#services" className={styles.footer__container_nav_link} >
-                Услуги
-              </a>
-            </li>
-            <li className={styles.footer__container_nav_item}>
               <a href="#command" className={styles.footer__container_nav_link} >
                 Команда
               </a>
@@ -36,6 +31,13 @@ export default function Footer(){
               </Link>
             </li>
             <li className={styles.footer__container_nav_item}>
+              <Link href={'/reviews'}>
+                <a className={styles.footer__container_nav_link} >
+                  Отзывы
+                </a>
+              </Link>
+            </li>
+            <li className={styles.footer__container_nav_item}>
               <Link href={'/articles'}>
                 <a className={styles.footer__container_nav_link} >
                   Статьи
@@ -43,9 +45,11 @@ export default function Footer(){
               </Link>
             </li>
             <li className={styles.footer__container_nav_item}>
-              <a href="#contacts" className={styles.footer__container_nav_link} >
-                Контакты
-              </a>
+              <Link href={'/contacts'}>
+                <a className={styles.footer__container_nav_link} >
+                  Контакты
+                </a>
+              </Link>
             </li>
           </ul>  
 

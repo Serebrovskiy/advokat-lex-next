@@ -11,6 +11,7 @@
   
       &_nav {
         list-style: none;
+        padding: 0;
   
         &_item {
           margin: 9rem 0 0 ;
@@ -109,7 +110,7 @@
   
       &__container {
         display: grid;
-        grid-template-rows: 320rem 250rem;
+        grid-template-rows: 340rem 250rem;
         grid-template-columns: 350rem 300rem;
         margin: 100rem 0 0 70rem;
   

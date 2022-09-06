@@ -38,6 +38,13 @@ export function Navigation({ active, onClose }){
             </a>
           </Link>
         </li>
+        <li className={`${active == 'reviews' ? styles.nav__link_active : ''} ${stylesMobile.mobile_menu__item}`}>
+          <Link href={'/reviews'}>
+            <a className={styles.nav__link}>
+              Отзывы
+            </a>
+          </Link>
+        </li>
         <li className={`${active == 'articles' ? styles.nav__link_active : ''} ${stylesMobile.mobile_menu__item}`}>
           <Link href={'/articles'}>
             <a className={styles.nav__link}>
@@ -45,12 +52,12 @@ export function Navigation({ active, onClose }){
             </a>
           </Link>
         </li>
-        <li className={stylesMobile.mobile_menu__item}>
-          {/* <Link href={'/contact'}> */}
-            <a href="#contacts" className={styles.nav__link}>
+        <li className={`${active == 'contacts' ? styles.nav__link_active : ''} ${stylesMobile.mobile_menu__item}`}>
+          <Link href={'/contacts'}>
+            <a className={styles.nav__link}>
               Контакты
             </a>
-          {/* </Link> */}
+          </Link>
         </li>
       </ul>
     </nav>

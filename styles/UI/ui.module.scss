@@ -1,6 +1,19 @@
 .ui {
   &__show_more {
     display: none;
+
+    &__text {
+      font-weight: 400;
+      font-size: 20rem;
+      line-height: 30rem;
+      color: #fff;
+      margin: 0;
+    }
+    &__arrow {
+      width: 60rem;
+      height: 60rem;
+      transform: translateY(-10rem);
+    }
   }
 
 }
