@@ -7,11 +7,11 @@ import { Context } from "../../popupsContext";
 import { MobileMenu } from "../../components/MobileMenu";
 import { Popup } from "../../components/Popup";
 import Footer from "../../components/sections/Footer";
-
+import { FormCallRequest } from '../../components/form/FormCallRequest';
 import styles from '../../styles/services/inner.module.scss';
 import stylesMain from '../../styles/articles/main.module.scss';
 import stylesUI from '../../styles/UI/ui.module.scss';
-import ReactMarkdown from 'react-markdown';
+
 
 export default function ArticlesPage({services, articles, children, currentArticle }) {
   const { 
@@ -176,6 +176,7 @@ export default function ArticlesPage({services, articles, children, currentArtic
             {/* сделать отдельным компанентом */}
           </section>
 
+      <FormCallRequest />
       <Footer />
       <Popup isOpenPopup={isOpenPopup} onClose={closeMobileMenu} name={namePopup} />
       {

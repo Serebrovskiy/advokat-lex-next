@@ -16,6 +16,82 @@
     }
   }
 
+  &__form_call_request {
+    height: 410rem;
+    background-color: #010101;
+    display: flex;
+    flex-direction: column;
+
+    &_title {
+      font-family: 'Inter';
+      font-weight: 700;
+      font-size: 42rem;
+      line-height: 130%;
+      color: #fff;
+      margin: 116rem 0 0 250rem;
+    }
+
+    &_description {
+      font-family: 'Inter';
+      font-weight: 400;
+      font-size: 18rem;
+      line-height: 140%;
+      color: #C6D5EA;
+      width: 715rem;
+      margin: 22rem 0 0 250rem;
+    }
+
+    &_form {
+      margin: 55rem 0 0 250rem;
+      display: flex;
+
+      &_input {
+        width: 500rem;
+        height: 60rem;
+        border: 1px solid #C9D5E8;
+        border-radius: 10.8rem;
+        padding-left: 16rem; 
+        padding-top: 0rem;
+        margin: 0 22rem 0 0 ;
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 16rem;
+        line-height: 140%;
+        color: #071737;
+
+        &::placeholder {
+          color: #859AB5;
+        }
+      }
+
+      &_button {
+        width: 300rem;
+        height: 60rem;
+        background: linear-gradient(137.49deg, #ECD821 2.26%, #FA9703 49.98%, #DA6330 94.81%);;
+        border-radius: 8rem; 
+        border: none;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20rem;
+        line-height: 140%;
+        color: #fff;
+        margin: 0 36rem 0 0 ;
+
+        &:hover {
+          cursor: pointer;
+          // color: #FA9703;
+        }
+      }
+
+      &_icon {
+        transform: translate(0rem, -134rem);
+        width: 200rem;
+        margin: 0 0 0 100rem;
+      }
+    }
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -46,8 +122,59 @@
         transform: translateY(-10rem);
       }
     }
+
+    &__form_call_request {
+      height: 1100rem;
+      position: relative;
+      
+      &_title {
+        font-size: 38rem;
+        margin: 380rem 0 0 61rem;
+      }
+      &_description {
+        font-size: 24rem;
+        line-height: 160%;
+        margin: 52rem 0 0 61rem;
+        width: 500rem;
+      }
+      &_form {
+        margin: 80rem 0 0 61rem;
+        display: flex;
+        flex-direction: column;
+  
+        &_input {
+          width: 595rem;
+          height: 100rem;
+          border-radius: 12rem;
+          padding-left: 25rem; 
+          padding-top: 0rem;
+          margin: 0;
+          font-size: 28rem;
+  
+          &::placeholder {
+            font-size: 28rem;
+          }
+        }
+  
+        &_button {
+          width: 592rem;
+          height: 100rem;
+          border-radius: 10rem; 
+          font-size: 30rem;
+          margin: 42rem 0 0;
+        }
+  
+        &_icon {
+          // transform: translate(0rem, -945rem);
+          width: 232rem;
+          margin: 0;
+          position: absolute;
+          top: 50rem;
+          left: 61rem;
+          transform: translate(0rem, 30rem);
+        }
+      }
+    }
+  
   }
- 
-
-
 }

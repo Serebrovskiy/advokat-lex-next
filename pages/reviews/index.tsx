@@ -6,10 +6,12 @@ import Header from "../../components/sections/Header";
 import { Context } from "../../popupsContext";
 import { MobileMenu } from "../../components/MobileMenu";
 import { Popup } from "../../components/Popup";
+import { FormCallRequest } from '../../components/form/FormCallRequest';
 import Footer from "../../components/sections/Footer";
 import styles from '../../styles/reviews/main.module.scss';
 import stylesMain from '../../styles/victories/main.module.scss';
 import stylesUI from '../../styles/UI/ui.module.scss';
+
 
 
 export default function ReviewsPage({ reviews }) {
@@ -90,6 +92,7 @@ export default function ReviewsPage({ reviews }) {
 
           </section>
 
+          <FormCallRequest />
           <Footer />
           <Popup isOpenPopup={isOpenPopup} onClose={closeMobileMenu} name={namePopup} />
           {

@@ -7,10 +7,11 @@ import { Context } from "../../popupsContext";
 import { MobileMenu } from "../../components/MobileMenu";
 import { Popup } from "../../components/Popup";
 import Footer from "../../components/sections/Footer";
-
+import { FormCallRequest } from '../../components/form/FormCallRequest';
 import styles from '../../styles/services/inner.module.scss';
 import stylesMain from '../../styles/victories/main.module.scss';
 import stylesUI from '../../styles/UI/ui.module.scss';
+
 
 
 export default function VictoriesPage({ services, cases, children, currentCase }) {
@@ -173,6 +174,7 @@ export default function VictoriesPage({ services, cases, children, currentCase }
         <div className={stylesMain.victories_main__bottom_blur}></div>
         </section>
 
+        <FormCallRequest />
         <Footer />
         <Popup isOpenPopup={isOpenPopup} onClose={closeMobileMenu} name={namePopup} />
         {

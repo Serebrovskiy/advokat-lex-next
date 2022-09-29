@@ -5,6 +5,7 @@ import { Context } from "../../popupsContext";
 import { MobileMenu } from "../../components/MobileMenu";
 import { Popup } from "../../components/Popup";
 import Footer from "../../components/sections/Footer";
+import { FormCallRequest } from "../../components/form/FormCallRequest";
 
 export default function ServiceLayout({ children, service }) {
   const { 
@@ -27,6 +28,7 @@ export default function ServiceLayout({ children, service }) {
         
         {children}
 
+        <FormCallRequest />
         <Footer />
         <Popup isOpenPopup={isOpenPopup} onClose={closeMobileMenu} name={namePopup} />
         {
